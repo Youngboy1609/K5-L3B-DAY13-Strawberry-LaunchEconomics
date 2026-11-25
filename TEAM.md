@@ -33,7 +33,7 @@ Các phần việc dưới đây ghi theo phân công. Nhóm cập nhật đóng
 | --- | --- | --- |
 | Hồ Trọng Nghĩa | Code A–B, chỉ số và rủi ro E, tổng hợp báo cáo | Kết quả ba phép thử A1, commit phần A–B và mục do Nghĩa viết trong `chi_so.md`, `group_report.md`. |
 | Mai Xuân Khang | Gắn nhãn 2, tổng hợp hồ sơ E và ghi phiếu chấm | Bộ nhãn độc lập, hồ sơ launch v0 và phiếu chấm của buổi duyệt chéo. |
-| Lương Thị Hồng Hạnh | Gắn nhãn 1, tổng hợp C và viết kế hoạch D | Bộ nhãn độc lập, bảng khắc phục, `pilot_plan.yaml` và kết quả kiểm tra YAML. |
+| Lương Thị Hồng Hạnh | Gắn nhãn 1, tổng hợp C và viết kế hoạch D | Bộ nhãn người 1 (20/20 ca) trong [bang_loi.md](report/team/bang_loi.md), commit `dc30952`, gắn độc lập trước khi so. Bản nháp bảng khắc phục 5 ca (ca 9, 7, 18, 4, 17). Chốt [pilot_plan.yaml](report/team/pilot_plan.yaml) trên số D1 của Quang: chia theo nhân viên 20 + 20, mde 6 điểm, 3 luật dừng đủ 4 vế; kiểm tra `yaml.safe_load` đạt, commit `f53bebd`. [Báo cáo cá nhân](report/team/2A202603748_LuongThiHongHanh.md) |
 | Phạm Đăng Quang | Kiểm số A–B, tiếp quản code cho D1 và E1 | Đối chiếu tay A1 và hoàn thiện [bảng chi phí](report/team/bang_chi_phi.md). Bổ sung tính cỡ mẫu D1 và ba chỉ số E1 trong [src/lab13.py](src/lab13.py). [Báo cáo cá nhân](report/team/2A202603760_PhamDangQuang.md) |
 
 Mỗi thành viên sao chép mẫu báo cáo cá nhân và lưu theo MSSV và họ tên viết liền không dấu, ví dụ `report/team/2A202603729_HoTrongNghia.md`. [Mẫu báo cáo cá nhân](report/team/MSSV_HoTen.md)
