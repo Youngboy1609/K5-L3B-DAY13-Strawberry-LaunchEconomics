@@ -21,17 +21,19 @@ Nhóm xây dựng hồ sơ Gate 2a để quyết định có nên thử nghiệm
 
 ## 4. Kết quả
 
-Các kết quả A–E và đề xuất Gate 2a đang chờ nhóm thực hiện và kiểm tra. Khi chốt bài, mục này ghi chi phí mỗi việc thành công, chi phí toàn hệ thống trên mỗi yêu cầu, kết quả ba chỉ số, đồng thuận gắn nhãn, cỡ mẫu đã chọn và lý do của đề xuất cuối. Số tính từ hai cột thời lượng giả lập ghi nhãn `simulated`.
+- **A · Chi phí.** Ba phép thử A1 đạt **1,20 · 1,25 · 1,25**. Agent xử lý thành công 978/1.200 yêu cầu với chi phí **4.472 đ/việc thành công**. Chi phí cả hệ thống là **5.865 đ/yêu cầu**, sau khi cộng phần nhân viên xử lý các ca agent không hoàn thành (`simulated`). [Mã tính A1–A4](../../src/lab13.py)
+- **B · Độ nhạy.** Giới hạn **2 lượt** cho tổng chi phí hệ thống thấp nhất, **6.901.220 đ** cho 1.200 yêu cầu. Khi xem lại toàn bộ ca có lượt `ok` trong phạm vi nội địa và hàng nặng, chi phí đạt **11.743–12.415 đ/việc thành công**, tùy thời lượng làm lại (`simulated`). [Mã tính B1–B4](../../src/lab13.py)
+- **E · Chỉ số mô tả.** Tỉ lệ đóng trong 24 giờ và không mở lại trong 7 ngày là **82,83%**, tỉ lệ sửa hoặc bỏ gợi ý **27,12%**, tỉ lệ mở lại **4,25%**. Đặc tả gồm 8 event để đo các chỉ số và theo dõi rủi ro kinh tế. [Đặc tả chỉ số](chi_so.md)
 
-Nhận xét và điểm của hội đồng dành cho Strawberry được cập nhật sau buổi duyệt chéo. Phiếu trong repo ghi phần Strawberry chấm nhóm được giao. [Hồ sơ launch v0](ho_so_launch_v0.md) · [Phiếu chấm](phieu_cham.md)
+Đồng thuận gắn nhãn, phương án chia nhóm và cỡ mẫu được cập nhật khi hoàn tất C và D. Đề xuất Gate 2a được chốt sau khi nhóm đối chiếu toàn bộ kết quả. Nhận xét và điểm của hội đồng dành cho Strawberry được cập nhật sau buổi duyệt chéo. [Hồ sơ launch v0](ho_so_launch_v0.md) · [Phiếu chấm](phieu_cham.md)
 
 ## 5. Khó khăn và cách xử lý
 
-Một điểm cần kiểm tra là giới hạn chạy lại có thể làm giảm chi phí của trợ lý nhưng làm tăng số yêu cầu chuyển cho nhân viên. Nhóm sẽ đối chiếu đồng thời chi phí mỗi việc thành công, số ca chuyển và chi phí toàn hệ thống ở từng giới hạn. Khi chọn đơn vị phân nhóm, nhóm sẽ kiểm tra cỡ mẫu hiệu dụng và ghi rõ đánh đổi nếu số cụm không đáp ứng mục tiêu phát hiện chênh lệch.
+Tối ưu riêng chi phí agent có thể dịch việc sang nhân viên. Giới hạn 1 lượt có chi phí mỗi việc thành công thấp nhất, **4.111 đ** (`simulated`), đồng thời có thêm **85 yêu cầu không thành công** so với giới hạn 2 lượt. Phương án pilot cần theo dõi cả hai khoản chi phí và nêu rõ đánh đổi về cỡ mẫu hiệu dụng khi chọn đơn vị phân nhóm. [Kịch bản B3](../../src/lab13.py)
 
 ## 6. Tổng hợp đóng góp
 
-Nghĩa phụ trách code A–B trước giờ giải lao, chỉ số và rủi ro kinh tế, đồng thời tổng hợp báo cáo. Quang đối chiếu số và tiếp quản code cho D1 và E1. Hạnh và Khang gắn nhãn độc lập ở CP3. Hạnh tổng hợp bảng lỗi và viết kế hoạch pilot, còn Khang tổng hợp hồ sơ launch và ghi phiếu chấm. Bằng chứng đóng góp được cập nhật theo kết quả từng checkpoint. [Chi tiết phân công](../../TEAM.md)
+Phần việc của Nghĩa đã có đầu ra code A–B, đặc tả chỉ số và rủi ro kinh tế. Theo phân công, Quang đối chiếu số và tiếp quản code cho D1 và E1. Hạnh và Khang gắn nhãn độc lập ở CP3. Hạnh tổng hợp bảng lỗi và viết kế hoạch pilot, còn Khang tổng hợp hồ sơ launch và ghi phiếu chấm. [Chi tiết phân công](../../TEAM.md) · [Báo cáo cá nhân của Nghĩa](2A202603729_HoTrongNghia.md)
 
 ## 7. Hạn chế và hướng cải thiện
 

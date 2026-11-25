@@ -34,6 +34,6 @@ Các phần việc dưới đây ghi theo phân công. Nhóm cập nhật đóng
 | Hồ Trọng Nghĩa | Code A–B, chỉ số và rủi ro E, tổng hợp báo cáo | Kết quả ba phép thử A1, commit phần A–B và mục do Nghĩa viết trong `chi_so.md`, `group_report.md`. |
 | Mai Xuân Khang | Gắn nhãn 2, tổng hợp hồ sơ E và ghi phiếu chấm | Bộ nhãn độc lập, hồ sơ launch v0 và phiếu chấm của buổi duyệt chéo. |
 | Lương Thị Hồng Hạnh | Gắn nhãn 1, tổng hợp C và viết kế hoạch D | Bộ nhãn độc lập, bảng khắc phục, `pilot_plan.yaml` và kết quả kiểm tra YAML. |
-| Phạm Đăng Quang | Kiểm số A–B, tiếp quản code cho D1 và E1 | Phép tính tay đối chiếu, bảng chi phí, commit và đầu ra tính cỡ mẫu, chỉ số. |
+| Phạm Đăng Quang | Kiểm số A–B, tiếp quản code cho D1 và E1 | Đối chiếu tay A1 và hoàn thiện [bảng chi phí](report/team/bang_chi_phi.md). Bổ sung tính cỡ mẫu D1 và ba chỉ số E1 trong [src/lab13.py](src/lab13.py). [Báo cáo cá nhân](report/team/2A202603760_PhamDangQuang.md) |
 
 Mỗi thành viên sao chép mẫu báo cáo cá nhân và lưu theo MSSV và họ tên viết liền không dấu, ví dụ `report/team/2A202603729_HoTrongNghia.md`. [Mẫu báo cáo cá nhân](report/team/MSSV_HoTen.md)
