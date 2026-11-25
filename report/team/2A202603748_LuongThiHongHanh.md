@@ -20,14 +20,14 @@
 - **`pilot_plan.yaml`:** chốt trên số D1 của Quang:
   + Đối chiếu 4 phương án: chia theo yêu cầu (1.251/nhóm, tràn tác động), theo nhân viên m=75 (cần 84 người > 40), 6 depot (trần 300, chỉ 6 cụm — loại), và 20 nhân viên/nhóm (trần 1.000 < 1.251).
   + Chọn chia theo nhân viên 20 + 20 với mức chênh mục tiêu +6 điểm: n hiệu dụng 859/nhóm, Design Effect 6,96, mỗi người ~299 yêu cầu; ghi rõ bất lợi power chỉ còn 0,64 nếu chênh thật 5 điểm và cần Giám đốc vận hành ký chấp nhận.
-  + Đặt ngưỡng an toàn dựa trên tỉ lệ mở lại thật: 4,25% toàn mẫu (51/1.200), 3,97% trong phạm vi pilot — chọn chênh ≥ +2 điểm so với đối chứng hoặc trần tuyệt đối 6%, thay vì ngưỡng 3% tuyệt đối (sẽ làm pilot dừng ngay tuần đầu).
+  + Đặt ngưỡng an toàn dựa trên tỉ lệ mở lại trong mẫu giả lập: 4,25% toàn mẫu (51/1.200), 3,97% trong phạm vi pilot — chọn chênh ≥ +2 điểm so với đối chứng hoặc trần tuyệt đối 6%, thay vì ngưỡng 3% tuyệt đối (sẽ làm pilot dừng ngay tuần đầu).
   + 3 luật dừng đều đủ 4 vế NẾU – TRONG – THÌ – KHÔNG THÌ, người bấm cờ là một vai trò cụ thể.
 
 ## 4. Bằng chứng
 
 - **Bộ nhãn người 1 và bản nháp khắc phục:** [bang_loi.md](bang_loi.md), commit `dc30952` ("gan nhan nhiem vu C") trên nhánh `feature/bang-loi-1` — commit trước khi so nhãn với người 2.
 - **Kế hoạch pilot:** [pilot_plan.yaml](pilot_plan.yaml), commit `f53bebd` trên nhánh `feature/pilot_plan`, đã push lên origin, author commit là `hatrang200715`.
-- **Kiểm tra máy:** chạy `yaml.safe_load` thành công; kiểm tự động xác nhận: không còn dấu `?`, 3 luật dừng đủ 4 vế NẾU–TRONG–THÌ–KHÔNG THÌ, không có từ "production".
+- **Kiểm tra máy:** chạy `yaml.safe_load` thành công; kiểm tự động xác nhận: không còn dấu `?`, 3 luật dừng đủ 4 vế NẾU–TRONG–THÌ–KHÔNG THÌ, không có thuật ngữ bị cấm theo RULES.md.
 - **Đối chiếu số:** mọi số pilot (1.251, 3.103, 1.000, 300, 859, DE 2,48/6,96, power 0,64, 4,25%/3,97%) lấy từ output của `src/lab13.py` (do Phạm Đăng Quang viết) chứ không tính từ nguồn khác.
 
 ## 5. Công cụ AI đã dùng
@@ -42,5 +42,5 @@
 ## 6. Tự đánh giá
 
 - Hoàn thành bộ nhãn người 1 đúng giờ, đúng quy trình độc lập; `pilot_plan.yaml` đã chốt và kiểm tra kỹ thuật đạt.
-- Phần còn dở của mình: bảng so nhãn và tỉ lệ đồng thuận trong `bang_loi.md` chờ bộ nhãn của người gắn nhãn 2; bảng khắc phục 5 ca là bản nháp, cần cả nhóm duyệt trước khi nộp.
-- Bài học: đặt ngưỡng an toàn phải soi dữ liệu chạy thử trước — ngưỡng 3% tuyệt đối tưởng chừng chặt mà sẽ dừng pilot ngay ở 3,97% thực tế.
+- Tại thời điểm nộp bộ nhãn người 1, bảng so nhãn còn chờ cột người 2. Bản tích hợp của nhóm đã giữ hai cột gốc, ghi mức đồng thuận **20/20** và rà soát năm biện pháp. [Bảng lỗi](bang_loi.md)
+- Bài học: đặt ngưỡng an toàn phải soi dữ liệu chạy thử trước — ngưỡng 3% tuyệt đối tưởng chừng chặt mà sẽ dừng pilot ngay ở 3,97% trong mẫu phạm vi pilot.
