@@ -43,21 +43,20 @@ Gắn nhãn người 2 cho 20 ca CP3, tổng hợp hồ sơ launch v0 và chuẩ
 ### Đối chiếu sau khi lưu bộ nhãn
 
 - Với khóa tham khảo, bộ nhãn trên khớp **20/20** theo cả [hướng dẫn chi tiết](../../docs/Lab13_Huong_dan_chi_tiet_buoi_chieu.md#nhãn-tham-khảo-cho-20-ca) và [slide chữa, trang 71](../../docs/Ngay13_Slide_Launch_Economics.pdf#page=71). Slide chấp nhận *Hệ thống* cho ca 6 nếu yêu cầu trợ lý đối chiếu mục với mô tả, hoặc ca 13 nếu tập trung vào việc trợ lý báo giới hạn không rõ. Ca 18 thuộc *Ngữ cảnh* vì số tiền đúng. Điểm đối chiếu 20/20 dùng các nhãn chính trong khóa.
-- Với nguồn ghi tên Hạnh, cột người 1 trong [bảng của nhánh DangQuang](https://github.com/Youngboy1609/K5-L3B-DAY13-Strawberry-LaunchEconomics/blob/124349cc7371f57120cd4565ecf855cb67fd15ed/report/team/bang_loi.md) có đủ 20 ca và trùng **20/20** , không có ca lệch. Bản trên nhánh tích hợp hiện vẫn trống cột người 1. Chưa có bản gốc do Hạnh cung cấp trực tiếp để xác nhận đồng thuận giữa hai người gắn nhãn theo quy trình CP3.
-- Cột đề tên Khang trong cùng nguồn trùng **19/20** với bộ đã lưu, lệch ở ca 6 (*Hệ thống* trong PR #2, *Do người dùng* trong bộ đã lưu). Đề xuất khi tổng hợp là ghi rõ bộ nhãn nào được so, lấy thao tác chọn sai mục làm nguyên nhân chính của ca 6 và dùng bước đối chiếu mô tả làm biện pháp khắc phục. Chưa có xác nhận thống nhất của hai người.
+- Đối chiếu cột người 2 với cột người 1 do Hạnh nộp ở PR #4 cho kết quả **20/20 ca (100%)**. Hai cột được giữ nguyên trong bảng tích hợp. Quy trình làm độc lập trước khi đối chiếu cần hai người xác nhận. [Bảng lỗi](bang_loi.md#hai-bộ-nhãn-độc-lập)
 
 ### Hồ sơ và phiếu duyệt chéo
 
-- [Hồ sơ launch v0](ho_so_launch_v0.md) tổng hợp đủ bảy mục. Đề xuất No-go tại Gate 2a dựa trên phép so chi phí cùng phạm vi khi xem lại toàn bộ và các đầu vào về an toàn, đo lường, thiết kế pilot còn thiếu.
-- [Phiếu chấm](phieu_cham.md) giữ thang 0/5/10 và có câu hỏi dự kiến. PR #2 ghi ứng viên Nhóm 05 (L3B). TEAM.md, các trao đổi công khai của repo và hồ sơ công khai tìm được chưa xác nhận repo của đội trình, phân công duyệt chéo hoặc biên bản trả lời.
+- [Hồ sơ launch v0](ho_so_launch_v0.md) tổng hợp đủ bảy mục. Đề xuất No-go tại Gate 2a dựa trên chi phí cả hệ thống khi xem lại toàn bộ và các điều kiện về an toàn, đo lường, cỡ mẫu cần kiểm chứng trước pilot.
+- [Phiếu chấm](phieu_cham.md) giữ thang 0/5/10 và câu hỏi dự kiến. Nhóm được chấm, điểm và quyết định chờ phân công cùng hồ sơ thật của đội trình.
 
 ## 4. Bằng chứng
 
 ### Mã nguồn và dữ liệu
 
-Bộ nhãn ban đầu nằm ở commit `3f28fa83cf54451b2160f71d748c2e675945f342`. Nguồn tính là [logix_runs.csv](../../src/logix_runs.csv) và [logix_requests.csv](../../src/logix_requests.csv), với `keep_default_na=False` khi đọc file yêu cầu. Hai CSV có cùng Git blob giữa mốc tích hợp `2e4dfb4` và `DangQuang@124349c`.
+Bộ nhãn ban đầu nằm ở commit `3f28fa83cf54451b2160f71d748c2e675945f342`. Nguồn tính là [logix_runs.csv](../../src/logix_runs.csv) và [logix_requests.csv](../../src/logix_requests.csv), với `keep_default_na=False` khi đọc file yêu cầu.
 
-Từ `src/`, `python lab13.py` của mốc tích hợp dừng ở A1 với `NotImplementedError` tại `so_lan_chay_ky_vong`. Chạy bản mã xuất riêng từ `feature/nghia-lab13-a-b-metrics@9bb9dc0` và `DangQuang@124349c` với cùng thư mục làm việc và CSV. Cả hai bản in A1 ĐẠT (1,20 · 1,25 · 1,25). Bản Quang in thêm D1 và E1. Các kết quả dưới đây được tính chéo từ CSV. [Mã Nghĩa](https://github.com/Youngboy1609/K5-L3B-DAY13-Strawberry-LaunchEconomics/blob/9bb9dc0c3bd50741ec7043c901009e1e537ebecb/src/lab13.py) · [Mã Quang](https://github.com/Youngboy1609/K5-L3B-DAY13-Strawberry-LaunchEconomics/blob/124349cc7371f57120cd4565ecf855cb67fd15ed/src/lab13.py) · [Bảng chi phí của Quang](https://github.com/Youngboy1609/K5-L3B-DAY13-Strawberry-LaunchEconomics/blob/124349cc7371f57120cd4565ecf855cb67fd15ed/report/team/bang_chi_phi.md)
+Chạy `python -B lab13.py` từ `src/` trên bản tích hợp. A1 đạt (1,20 · 1,25 · 1,25), các bảng A–B và kết quả D1, E1 được in đầy đủ. Các phép tính dưới đây được đối chiếu từ CSV. [Mã tính](../../src/lab13.py) · [Bảng chi phí](bang_chi_phi.md)
 
 ### A2–A4 · Chi phí và phạm vi
 
@@ -126,7 +125,7 @@ Bản code Quang dùng 15,3 phút, nên tổng theo giả định làm tròn là
 | An toàn | `mo_lai_trong_7_ngay = 1`, chia tổng yêu cầu | 51/1.200 = 4,25% |
 | An toàn trong phạm vi | Cùng phép đếm trên nội địa và hàng nặng | 39/982 = 3,97% |
 
-Đây là các chỉ số mô tả mẫu giả lập của lab. Chênh lệch so với baseline 70% chưa ước lượng được tác động vì mẫu chưa có đối chứng. Bản đặc tả Nghĩa liệt kê tám event có `trace_id` và ba rủi ro. Cần bằng chứng event đã chạy nối được theo yêu cầu, bổ sung dấu vết xác nhận ghi sổ cho ca 7 và khóa chống trùng cho ca 20. [Đặc tả chỉ số và rủi ro của Nghĩa](https://github.com/Youngboy1609/K5-L3B-DAY13-Strawberry-LaunchEconomics/blob/9bb9dc0c3bd50741ec7043c901009e1e537ebecb/report/team/chi_so.md)
+Đây là các chỉ số mô tả mẫu giả lập của lab. Chênh lệch so với baseline 70% chưa ước lượng được tác động vì mẫu chưa có đối chứng. Bản đặc tả tích hợp có 12 event có `trace_id` và ba rủi ro, bao gồm dấu vết ghi sổ và thông báo cho ca 7, cùng tín hiệu phát hiện hoàn trùng cho ca 20. Cần kiểm tra ghi và nối event trước khi chạy pilot. [Đặc tả chỉ số và rủi ro](chi_so.md)
 
 ### D1–D3 · Cỡ mẫu và mức sẵn sàng
 
@@ -134,16 +133,16 @@ Công thức hai tỉ lệ dùng baseline 0,70, alpha 0,05 hai phía và power 0
 
 - Với 75 yêu cầu/nhân viên, `DE = 2,48` và `ceil(1.251 × 2,48) = 3.103` yêu cầu/nhánh, tương đương 42 nhân viên/nhánh. Nếu chỉ có 20 nhân viên hoặc 6 depot mỗi nhánh, cỡ mẫu hiệu dụng luôn thấp hơn lần lượt 1.000 và 300. Chia theo yêu cầu đạt cỡ mẫu dễ hơn, nhưng cùng nhân viên xử lý cả hai nhánh dễ làm lan tác động.
 - Với MDE 6 điểm cần 859 quan sát hiệu dụng/nhánh. Phương án 20 nhân viên × 299 yêu cầu có 5.980 yêu cầu thực/nhánh, `DE = 6,96` và `5.980/6,96 = 859,20` hiệu dụng. `NormalIndPower` tại 859 quan sát hiệu dụng cho power khoảng 0,642 nếu tác động thật chỉ 5 điểm. Cần xác nhận số nhân viên, depot, khối lượng và thời gian theo dõi thêm 7 ngày sau đóng. Mẫu phạm vi hiện có chỉ bao phủ 6 depot và 20 mã nhân viên.
-- `yaml.safe_load` đọc được [YAML tại mốc tích hợp](pilot_plan.yaml), nhưng còn 24 dấu hỏi ngoài chú thích và 0/3 luật có nội dung. [Bản DangQuang@124349c](https://github.com/Youngboy1609/K5-L3B-DAY13-Strawberry-LaunchEconomics/blob/124349cc7371f57120cd4565ecf855cb67fd15ed/report/team/pilot_plan.yaml) parse được, sạch placeholder, đề xuất ngẫu nhiên theo nhân viên phân tầng theo depot, đối chứng đồng thời và phân quyền giảm chia sẻ gợi ý. Bản này có ba luật đủ bốn vế về an toàn (chênh mở lại ≥ 2 điểm hoặc vượt 6%, hay có ca hoàn trùng, Giám đốc vận hành tắt trong 30 phút), chi phí (> 8.000 đ/việc thành công trong hai tuần, PM thu hẹp) và sử dụng (> 40% sửa/bỏ trong một tuần, Trưởng nhóm CSKH xử lý). Cần xác nhận các ngưỡng và người có quyền dừng, chốt depot/lịch và làm rõ điều kiện qua từng bước rollout.
+- [Kế hoạch của Hạnh](pilot_plan.yaml) đọc được bằng `yaml.safe_load`, không còn placeholder ngoài chú thích và có ba luật dừng. Kế hoạch ghi rõ số yêu cầu thực cần thu và cửa sổ theo dõi bảy ngày, cùng phép đo chi phí sẽ dùng trong pilot.
 
-### Bàn giao các file có nội dung trùng
+### Bàn giao sau tích hợp
 
-[PR #1](https://github.com/Youngboy1609/K5-L3B-DAY13-Strawberry-LaunchEconomics/pull/1) là nguồn A–B và đặc tả E. [PR #2](https://github.com/Youngboy1609/K5-L3B-DAY13-Strawberry-LaunchEconomics/pull/2) có thay đổi cùng đường dẫn ở cả năm file của phần Khang. Hai bản cần được rà khi tích hợp để giữ cột người 1 và phần tổng hợp thuộc phạm vi Hạnh, dùng bộ nhãn có nguồn rõ ràng cho cột người 2 và bỏ các ghi nhận duyệt chéo chưa xác minh.
+Bảng lỗi tích hợp giữ hai cột từ PR #3 và #4. Hồ sơ launch dùng kết quả A–B, D1 và E1 đã có trên `main` cùng kế hoạch ở PR #5. [Bảng lỗi](bang_loi.md) · [Hồ sơ launch](ho_so_launch_v0.md) · [Kế hoạch pilot](pilot_plan.yaml)
 
 ## 5. Công cụ AI đã dùng
 
-Codex hỗ trợ lập bộ phân tích nhãn, đối chiếu nguồn, tổng hợp hồ sơ  Dùng Git để đối chiếu phiên bản, Python/pandas và Decimal để đếm và tính lại từ CSV, statsmodels để kiểm tra power, PyYAML để đọc kế hoạch và pypdf để đọc slide. Kiểm tra tự động đối chiếu bộ nhãn đã lưu, các phép tính, phạm vi diff và liên kết. Bộ nhãn được phân tích trước khi mở khóa tham khảo.
+Codex hỗ trợ lập bộ phân tích nhãn, đối chiếu nguồn, tổng hợp hồ sơ. Dùng Git để đối chiếu phiên bản, Python/pandas và Decimal để đếm và tính lại từ CSV, statsmodels để kiểm tra power, PyYAML để đọc kế hoạch và pypdf để đọc slide. Kiểm tra tự động đối chiếu bộ nhãn đã lưu, các phép tính, phạm vi diff và liên kết. Bộ nhãn được phân tích trước khi mở khóa tham khảo.
 
 ## 6. Tự đánh giá
 
-Đã lập đủ 20 nhãn, chốt phần phân tích chi phí và chuẩn bị hồ sơ bảy mục. CP3 còn thiếu nguồn trực tiếp để xác nhận hai bộ nhãn độc lập. Phiếu chưa chấm điểm vì thiếu hồ sơ đội trình đã xác minh. Phần tích hợp của nhóm vẫn thiếu đầu ra A1 chạy được, bảng khắc phục đã xác nhận và kế hoạch pilot có thể thực hiện.
+Đã lập đủ 20 nhãn, chốt phần phân tích chi phí và chuẩn bị hồ sơ bảy mục. Bản tích hợp ghi kết quả đồng thuận 20/20. Phiếu chấm chờ hồ sơ đội trình đã xác minh.

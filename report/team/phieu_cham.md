@@ -3,7 +3,7 @@
 Nhóm số n chấm nhóm số n + 1. Nhóm cuối chấm nhóm 1. Điểm dựa trên bằng chứng trong hồ sơ đội trình.
 
 - Nhóm chấm (hội đồng): Strawberry (L3B).
-- Nhóm được chấm: chưa xác minh. [Bản phiếu trong PR #2](https://github.com/Youngboy1609/K5-L3B-DAY13-Strawberry-LaunchEconomics/blob/124349cc7371f57120cd4565ecf855cb67fd15ed/report/team/phieu_cham.md) ghi Nhóm 05 (L3B). Cần phân công duyệt chéo hoặc liên kết hồ sơ do đội trình cung cấp để đối chiếu.
+- Nhóm được chấm: chờ xác nhận phân công và nhận hồ sơ của đội trình.
 
 | Tiêu chí | 0 điểm | 5 điểm | 10 điểm | Điểm | Lý do (có số) |
 | --- | --- | --- | --- | ---: | --- |
