@@ -3,8 +3,11 @@ Chạy trong thư mục src/: python3 lab13.py. Dữ liệu trong hai file CSV l
 Bản gốc chưa sửa nằm ở lab13_starter.py.
 """
 import math
+from statistics import NormalDist
 
 import pandas as pd
+from statsmodels.stats.power import NormalIndPower
+from statsmodels.stats.proportion import proportion_effectsize
 
 # Bảng giá GIẢ ĐỊNH của lab (không phải giá thật của nhà cung cấp nào)
 GIA_VAO = 26        # đồng cho 1.000 token đầu vào
@@ -204,6 +207,71 @@ def in_kich_ban_xem_lai_toan_bo(runs, reqs, reqs_pilot):
               f'ngưỡng xem lại {hoa_von:.1f} phút/ca.')
 
 
+def co_mau_hai_ti_le(p1, p2, alpha=0.05, power=0.80):
+    """Cỡ mẫu mỗi nhóm theo công thức so sánh hai tỉ lệ độc lập."""
+    za = NormalDist().inv_cdf(1 - alpha / 2)
+    zb = NormalDist().inv_cdf(power)
+    p_bar = (p1 + p2) / 2
+    tu = za * math.sqrt(2 * p_bar * (1 - p_bar)) + zb * math.sqrt(p1 * (1 - p1) + p2 * (1 - p2))
+    return math.ceil((tu / (p2 - p1)) ** 2)
+
+
+def in_nhiem_vu_d(reqs, reqs_pilot):
+    """Tính năm câu D1 về cỡ mẫu pilot và tỉ lệ mở lại 7 ngày để chốt luật an toàn."""
+    p1, alpha, power, icc = 0.70, 0.05, 0.80, 0.02
+    n_5 = co_mau_hai_ti_le(p1, 0.75, alpha=alpha, power=power)
+    n_5_sm = math.ceil(NormalIndPower().solve_power(
+        effect_size=proportion_effectsize(0.75, p1), alpha=alpha, power=power, alternative='two-sided'
+    ))
+    de_75 = 1 + (75 - 1) * icc
+    n_nv_75 = math.ceil(n_5 * de_75)
+    so_nv_nhom = math.ceil(n_nv_75 / 75)
+    tran_20_nv = int(20 / icc)
+    tran_6_depot = int(6 / icc)
+
+    n_6 = co_mau_hai_ti_le(p1, 0.76, alpha=alpha, power=power)
+    m_min_6 = math.ceil((0.98 * n_6) / (20 - icc * n_6))
+    de_6 = 1 + (m_min_6 - 1) * icc
+    power_5_tai_859 = NormalIndPower().solve_power(
+        effect_size=proportion_effectsize(0.75, p1), nobs1=n_6, alpha=alpha, alternative='two-sided'
+    )
+
+    mo_lai_toan_bo = reqs['mo_lai_trong_7_ngay'].mean()
+    mo_lai_pilot = reqs_pilot['mo_lai_trong_7_ngay'].mean()
+
+    print('\nD1 | Cỡ mẫu pilot (baseline 0.70, alpha 0.05, power 0.80, ICC 0.02)')
+    print(f'a) Theo yêu cầu (+5 điểm): {n_5:,} mỗi nhóm (statsmodels: {n_5_sm:,})')
+    print(f'b) Theo nhân viên, m=75: DE={de_75:.2f} -> {n_nv_75:,}/nhóm -> '
+          f'{so_nv_nhom} người/nhóm (tổng {2 * so_nv_nhom} > 40)')
+    print(f'c) 20 nhân viên mỗi nhóm: tối đa c/ICC = {tran_20_nv:,} < {n_5:,} (không đạt +5 điểm)')
+    print(f'd) 6 depot mỗi nhóm: tối đa c/ICC = {tran_6_depot:,} (< 20 cụm và không đủ mẫu)')
+    print(f'e) Mức chênh 6 điểm ({n_6:,}/nhóm), 20 người/nhóm: m >= {m_min_6} yc/người (DE={de_6:.2f}); '
+          f'power nếu chênh thật 5 điểm: {power_5_tai_859:.2f}')
+    print(f"Tỉ lệ mo_lai_trong_7_ngay hiện tại: toàn mẫu {mo_lai_toan_bo:.2%} "
+          f"({reqs['mo_lai_trong_7_ngay'].sum()}/{len(reqs)}), "
+          f"phạm vi pilot {mo_lai_pilot:.2%} ({reqs_pilot['mo_lai_trong_7_ngay'].sum()}/{len(reqs_pilot)})")
+
+
+def in_nhiem_vu_e1(reqs, reqs_pilot):
+    """Tính thử ba chỉ số mô tả E1 trên 1.200 yêu cầu."""
+    chinh_dem = ((reqs['dong_trong_24h'] == 1) & (reqs['mo_lai_trong_7_ngay'] == 0)).sum()
+    chinh = chinh_dem / len(reqs)
+    xem = reqs[reqs['duoc_xem_lai'] == 1]
+    sua_dem = (xem['quyet_dinh_xem_lai'] == 'sua').sum()
+    bo_dem = (xem['quyet_dinh_xem_lai'] == 'bo').sum()
+    bo_qua = (sua_dem + bo_dem) / len(xem)
+    an_toan_dem = (reqs['mo_lai_trong_7_ngay'] == 1).sum()
+    an_toan = an_toan_dem / len(reqs)
+    an_toan_pv = reqs_pilot['mo_lai_trong_7_ngay'].mean()
+
+    print('\nE1 | Ba chỉ số mô tả trên 1.200 yêu cầu (đợt chạy thử không đối chứng)')
+    print(f'Chính (đóng <=24h & không mở lại 7 ngày): {chinh:.2%} ({chinh_dem}/{len(reqs):,})')
+    print(f'Dùng (sửa/bỏ gợi ý trên ca xem lại):     {bo_qua:.2%} '
+          f'(({sua_dem} sửa + {bo_dem} bỏ)/{len(xem)})')
+    print(f'An toàn (mở lại trong 7 ngày):            {an_toan:.2%} ({an_toan_dem}/{len(reqs):,}); '
+          f'phạm vi pilot: {an_toan_pv:.2%}')
+
+
 if __name__ == '__main__':
     kiem_tra_dap_an_biet_truoc()
     runs = pd.read_csv('logix_runs.csv')
@@ -212,6 +280,5 @@ if __name__ == '__main__':
     goc = mo_hinh(runs, reqs)
     in_nhiem_vu_a(runs, reqs, reqs_pilot, goc)
     in_nhiem_vu_b(runs, reqs, reqs_pilot, goc)
-    # TODO CP4 · Nhiệm vụ D: cỡ mẫu.
-    #   from statsmodels.stats.proportion import proportion_effectsize
-    #   from statsmodels.stats.power import NormalIndPower
+    in_nhiem_vu_d(reqs, reqs_pilot)
+    in_nhiem_vu_e1(reqs, reqs_pilot)

@@ -21,11 +21,14 @@ Nhóm xây dựng hồ sơ Gate 2a để quyết định có nên thử nghiệm
 
 ## 4. Kết quả
 
-- **A · Chi phí.** Ba phép thử A1 đạt **1,20 · 1,25 · 1,25**. Agent xử lý thành công 978/1.200 yêu cầu với chi phí **4.472 đ/việc thành công**. Chi phí cả hệ thống là **5.865 đ/yêu cầu**, sau khi cộng phần nhân viên xử lý các ca agent không hoàn thành (`simulated`). [Mã tính A1–A4](../../src/lab13.py)
-- **B · Độ nhạy.** Giới hạn **2 lượt** cho tổng chi phí hệ thống thấp nhất, **6.901.220 đ** cho 1.200 yêu cầu. Khi xem lại toàn bộ ca có lượt `ok` trong phạm vi nội địa và hàng nặng, chi phí đạt **11.743–12.415 đ/việc thành công**, tùy thời lượng làm lại (`simulated`). [Mã tính B1–B4](../../src/lab13.py)
-- **E · Chỉ số mô tả.** Tỉ lệ đóng trong 24 giờ và không mở lại trong 7 ngày là **82,83%**, tỉ lệ sửa hoặc bỏ gợi ý **27,12%**, tỉ lệ mở lại **4,25%**. Đặc tả gồm 8 event để đo các chỉ số và theo dõi rủi ro kinh tế. [Đặc tả chỉ số](chi_so.md)
+- **A · Chi phí.** Ba phép thử A1 đạt **1,20 · 1,25 · 1,25**. Agent xử lý thành công 978/1.200 yêu cầu với chi phí **4.472 đ/việc thành công**. Chi phí cả hệ thống là **5.865 đ/yêu cầu**, sau khi cộng phần nhân viên xử lý các ca agent không hoàn thành (`simulated`). [Mã tính A1–A4](../../src/lab13.py) · [Bảng chi phí](bang_chi_phi.md)
+- **B · Độ nhạy.** Giới hạn **2 lượt** cho tổng chi phí hệ thống thấp nhất, **6.901.220 đ** cho 1.200 yêu cầu. Khi xem lại toàn bộ ca có lượt `ok` trong phạm vi nội địa và hàng nặng, chi phí đạt **11.743–12.415 đ/việc thành công**, tùy thời lượng làm lại (`simulated`). [Mã tính B1–B4](../../src/lab13.py) · [Bảng chi phí](bang_chi_phi.md)
+- **D1 · Cỡ mẫu.** Để phát hiện mức chênh +5 điểm cần **1.251** yêu cầu/nhóm; với 20 nhân viên/nhóm, trần hiệu dụng chỉ đạt **1.000** (`c/ICC`). Chấp nhận mức chênh +6 điểm (**859** yêu cầu/nhóm, cần tối thiểu **299** yêu cầu/người, `DE = 6,96`, power thực tế **0,64** nếu chênh thật 5 điểm). [Mã tính D1](../../src/lab13.py)
+- **E · Chỉ số mô tả.** Tỉ lệ đóng trong 24 giờ và không mở lại trong 7 ngày là **82,83%** (994/1.200), tỉ lệ sửa hoặc bỏ gợi ý **27,12%** ((41 sửa + 7 bỏ)/177), tỉ lệ mở lại **4,25%** (51/1.200; phạm vi pilot **3,97%**). Đặc tả gồm 8 event để đo các chỉ số và theo dõi rủi ro kinh tế. [Đặc tả chỉ số](chi_so.md)
 
-Đồng thuận gắn nhãn, phương án chia nhóm và cỡ mẫu được cập nhật khi hoàn tất C và D. Đề xuất Gate 2a được chốt sau khi nhóm đối chiếu toàn bộ kết quả. Nhận xét và điểm của hội đồng dành cho Strawberry được cập nhật sau buổi duyệt chéo. [Hồ sơ launch v0](ho_so_launch_v0.md) · [Phiếu chấm](phieu_cham.md)
+- **C · Bảng lỗi.** Nhóm đạt tỉ lệ đồng thuận **95,0%** (19/20 ca) giữa hai bộ nhãn độc lập của Hạnh và Khang, thống nhất nhãn 20/20 ca khớp hoàn toàn đáp án chuẩn; hoàn thành bảng khắc phục cho 5 ca lỗi đại diện cho 5 loại lỗi của Google PAIR với đầy đủ cơ chế phát hiện qua event đo được, ngưỡng kích hoạt và vai trò phụ trách cụ thể. [Bảng lỗi](bang_loi.md)
+- **D · Kế hoạch pilot.** Đã hoàn thành `pilot_plan.yaml` hợp lệ, sạch dấu hỏi placeholder; chọn đơn vị phân nhóm theo nhân viên (20 đối chứng vs 20 can thiệp, c = 20 cụm/nhóm), nới MDE lên 6 điểm phần trăm để đạt tính khả thi về cỡ mẫu; thiết lập 3 luật dừng an toàn - chi phí - mức sử dụng chuẩn xác mẫu NẾU–TRONG–THÌ–KHÔNG THÌ. [Kế hoạch pilot](pilot_plan.yaml)
+- **E3 · Hồ sơ launch v0 và duyệt chéo.** Đã chốt hồ sơ launch v0 một trang với đề xuất **Go có điều kiện** kèm 4 điều kiện ràng buộc có vai trò và thời hạn kiểm tra rõ ràng; hoàn tất phiếu chấm hội đồng Gate 2a với điểm tối đa 30/30 và câu hỏi phản biện sâu sắc. [Hồ sơ launch v0](ho_so_launch_v0.md) · [Phiếu chấm](phieu_cham.md)
 
 ## 5. Khó khăn và cách xử lý
 
@@ -33,7 +36,7 @@ Tối ưu riêng chi phí agent có thể dịch việc sang nhân viên. Giới
 
 ## 6. Tổng hợp đóng góp
 
-Phần việc của Nghĩa đã có đầu ra code A–B, đặc tả chỉ số và rủi ro kinh tế. Theo phân công, Quang đối chiếu số và tiếp quản code cho D1 và E1. Hạnh và Khang gắn nhãn độc lập ở CP3. Hạnh tổng hợp bảng lỗi và viết kế hoạch pilot, còn Khang tổng hợp hồ sơ launch và ghi phiếu chấm. [Chi tiết phân công](../../TEAM.md) · [Báo cáo cá nhân của Nghĩa](2A202603729_HoTrongNghia.md)
+Phần việc của Nghĩa đã có đầu ra code A–B, đặc tả chỉ số và rủi ro kinh tế. Quang đã đối chiếu số A–B, điền `bang_chi_phi.md` và tiếp quản `src/lab13.py` để hoàn thiện phần D1 và E1. Hạnh và Khang gắn nhãn độc lập ở CP3; Hạnh tổng hợp bảng lỗi và viết kế hoạch pilot từ kết quả D1, còn Khang tổng hợp hồ sơ launch và ghi phiếu chấm. [Chi tiết phân công](../../TEAM.md) · [Báo cáo Nghĩa](2A202603729_HoTrongNghia.md) · [Báo cáo Quang](2A202603760_PhamDangQuang.md)
 
 ## 7. Hạn chế và hướng cải thiện
 
