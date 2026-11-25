@@ -26,6 +26,10 @@ Mỗi event có `trace_id` để truy vết, `request_id` để nối các thao 
 | `ticket_closed` | Hệ thống vé hỗ trợ | `trace_id`, `request_id`, `closed_at` | Khi yêu cầu được đóng |
 | `ticket_reopened` | Hệ thống vé hỗ trợ | `trace_id`, `request_id`, `reopened_at`, `reason` | Khi yêu cầu được mở lại |
 | `refund_amount_audited` | Bộ phận kiểm soát | `trace_id`, `request_id`, `actual_amount_vnd`, `expected_amount_vnd`, `audited_at` | Khi hoàn tất kiểm tra một yêu cầu trong mẫu tuần |
+| `input_validation_failed` | Giao diện hoàn phí | `trace_id`, `request_id`, `input_type`, `reason` | Khi đầu vào thiếu hoặc không tra được mã vận đơn |
+| `handoff_to_staff` | Trợ lý | `trace_id`, `request_id`, `reason`, `loai` | Khi một yêu cầu được chuyển cho nhân viên |
+| `refund_ledger_write` | Dịch vụ sổ cái | `trace_id`, `request_id`, `refund_intent_id`, `idempotency_key`, `ledger_transaction_id`, `status`, `actual_amount_vnd` | Khi ghi sổ thành công hoặc thất bại |
+| `refund_status_notified` | Dịch vụ thông báo | `trace_id`, `request_id`, `refund_intent_id`, `notification_status` | Khi thông báo trạng thái hoàn phí cho khách |
 
 **Event dùng để tính từng chỉ số**
 
@@ -34,6 +38,7 @@ Mỗi event có `trace_id` để truy vết, `request_id` để nối các thao 
 - **Mở lại.** Nối `pilot_request_enrolled`, `ticket_closed` và `ticket_reopened`. Đếm mỗi yêu cầu mở lại ở cửa sổ 7 ngày một lần.
 - **Chủ động mở trợ lý.** Nối `pilot_request_enrolled` ở nhánh can thiệp với `staff_assistant_opened`, đếm mỗi yêu cầu tối đa một lần.
 - **Hoàn sai số tiền.** Dùng `refund_amount_audited` để đối chiếu số tiền thực hoàn và số tiền đúng trong mẫu đã kiểm tra.
+- **Hoàn trùng.** Cảnh báo khi một `refund_intent_id` có hai `ledger_transaction_id` khác nhau cùng ghi thành công. Mã ý định hoàn phí dùng chung cho các lượt thử và yêu cầu gửi lại của cùng một khoản hoàn. [Luật dừng an toàn](pilot_plan.yaml)
 
 ## E2 · Rủi ro kinh tế
 
