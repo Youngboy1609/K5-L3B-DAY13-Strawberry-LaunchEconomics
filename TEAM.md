@@ -32,7 +32,7 @@ Các phần việc dưới đây ghi theo phân công. Nhóm cập nhật đóng
 | Thành viên | Phần việc phụ trách | Đóng góp thực tế và bằng chứng cần ghi |
 | --- | --- | --- |
 | Hồ Trọng Nghĩa | Code A–B, chỉ số và rủi ro E, tổng hợp báo cáo | Kết quả ba phép thử A1, commit phần A–B và mục do Nghĩa viết trong `chi_so.md`, `group_report.md`. |
-| Mai Xuân Khang | Gắn nhãn 2, tổng hợp hồ sơ E và ghi phiếu chấm | [20 nhãn có Codex hỗ trợ và kiểm số](report/team/2A202603722_MaiXuanKhang.md) · [Hồ sơ launch v0](report/team/ho_so_launch_v0.md) · [Phiếu chờ hồ sơ đội trình](report/team/phieu_cham.md). |
+| Mai Xuân Khang | Gắn nhãn 2, tổng hợp hồ sơ E và ghi phiếu chấm | [Bộ nhãn người 2 và kết quả kiểm số](report/team/2A202603722_MaiXuanKhang.md) · [Hồ sơ launch v0](report/team/ho_so_launch_v0.md) · [Phiếu chờ hồ sơ đội trình](report/team/phieu_cham.md). |
 | Lương Thị Hồng Hạnh | Gắn nhãn 1, tổng hợp C và viết kế hoạch D | Bộ nhãn độc lập, bảng khắc phục, `pilot_plan.yaml` và kết quả kiểm tra YAML. |
 | Phạm Đăng Quang | Kiểm số A–B, tiếp quản code cho D1 và E1 | Phép tính tay đối chiếu, bảng chi phí, commit và đầu ra tính cỡ mẫu, chỉ số. |
 
