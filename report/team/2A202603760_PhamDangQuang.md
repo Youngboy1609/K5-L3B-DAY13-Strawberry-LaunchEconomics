@@ -9,8 +9,8 @@
 
 ## 2. Phần việc phụ trách
 
-- **Trước giờ giải lao (A–B):** Tính tay đối chiếu các phép thử A1, kiểm tra số liệu mô hình chi phí A2, A3, A4 và bảng độ nhạy B1–B4; soát các con số và nhãn `simulated`, hoàn thiện nội dung `report/team/bang_chi_phi.md`.
-- **Sau giờ giải lao (D–E):** Tiếp quản `src/lab13.py` từ Hồ Trọng Nghĩa; bổ sung và chạy mã nguồn tính toán cỡ mẫu D1 (`co_mau_hai_ti_le`, `NormalIndPower`), kiểm tra 5 câu D1 và ba chỉ số mô tả E1; chuyển giao kết quả cho Hồng Hạnh hoàn thiện `pilot_plan.yaml` và Khang tổng hợp hồ sơ launch v0.
+- **Trước giờ giải lao (A–B).** Đối chiếu tay các phép thử A1, kiểm tra số liệu chi phí A2–A4 và độ nhạy B1–B4. Điền bảng chi phí và soát nhãn `simulated`.
+- **Sau giờ giải lao (D1 và E1).** Tiếp quản `src/lab13.py` từ Hồ Trọng Nghĩa, bổ sung phép tính cho 5 câu D1 và ba chỉ số mô tả E1. Kết quả D1 và tỷ lệ mở lại là số liệu bàn giao cho kế hoạch pilot theo phân công.
 
 ## 3. Đóng góp cụ thể
 
@@ -26,27 +26,19 @@
   + Xác định trần cỡ mẫu tối đa cho 20 nhân viên/nhóm (`c/ICC = 1.000 < 1.251`) và 6 depot/nhóm (`300 < 1.251`).
   + Với mục tiêu chênh 6 điểm phần trăm, cần `859` yêu cầu hiệu dụng mỗi nhánh. Tại `299` yêu cầu/người và 20 người/nhánh, thu `5.980` yêu cầu/nhánh, tương đương `859,20` hiệu dụng với `DE = 6,96`. Power ước tính `0,64` nếu mức chênh thật là 5 điểm.
   + Hàm `in_nhiem_vu_e1` tính ba chỉ số mô tả trên dữ liệu giả lập. Chỉ số chính là `82,83%` (994/1.200), tỉ lệ sửa hoặc bỏ gợi ý là `27,12%` (48/177), và tỉ lệ mở lại 7 ngày là `4,25%` toàn mẫu (3,97% trong phạm vi pilot).
-- **Hoàn thiện các hồ sơ liên quan:**
-  + Điền và soát số toàn bộ `report/team/bang_chi_phi.md`.
-  + Phối hợp cùng Hạnh kiểm tra các thông số cỡ mẫu và luật dừng trong `report/team/pilot_plan.yaml`.
-  + Đóng góp số liệu và tham gia thảo luận phản biện nội dung trong `report/team/ho_so_launch_v0.md` và `report/team/phieu_cham.md`.
 
 ## 4. Bằng chứng
 
 - **Mã nguồn:** Các hàm và đoạn in kết quả D1, E1 trong `src/lab13.py`. Lệnh chạy kiểm thử: `python lab13.py` in đầy đủ các kết quả A1, A2, A3, A4, B1, B2, B3, B4, D1, E1 không có cảnh báo hay ngoại lệ.
-- **Tài liệu nộp:**
-  + File `report/team/bang_chi_phi.md` với đầy đủ số liệu và nhãn `simulated`.
-  + Phần chú thích D1 và các thông số cỡ mẫu trong `report/team/pilot_plan.yaml`.
-  + Mục 1, 2, 3, 4 trong `report/team/ho_so_launch_v0.md`.
-- **Commit Git:** Nhánh `DangQuang` nối tiếp commit bàn giao `9bb9dc0` của Nghĩa. Commit `4066efc` bổ sung D1, E1 và các bảng kết quả.
+- **Bảng chi phí.** Kết quả A1–A4 và B1–B4 có trong [bang_chi_phi.md](bang_chi_phi.md).
+- **Nhánh Git.** Phần việc nằm trên `DangQuang`, nối tiếp commit bàn giao `9bb9dc0` của Nghĩa.
 
 ## 5. Công cụ AI đã dùng
 
-- **Công cụ:** Gemini / Antigravity hỗ trợ kiểm tra công thức giải tích cỡ mẫu hiệu dụng, rà soát tính hợp lệ của file YAML và đối chiếu các trường trong phiếu chấm.
+- **Công cụ.** Gemini / Antigravity hỗ trợ kiểm tra công thức cỡ mẫu hiệu dụng.
 - **Cách tự kiểm tra kết quả:**
   + Đối chiếu D1.e bằng phép tính `20m >= 859 × (0,98 + 0,02m)`, suy ra `2,82m >= 841,82` và `m >= 298,52`. Với số nguyên tối thiểu `m = 299`, `5.980 ÷ 6,96 ≈ 859,20`.
   + Tự viết script kiểm tra tính toán độc lập bằng thư viện `statistics` và `statsmodels`.
-  + Dùng lệnh `yaml.safe_load` kiểm tra cú pháp file cấu hình `pilot_plan.yaml`.
 - **Rà soát bổ sung bằng Codex:** Chạy lại `python lab13.py` và đối chiếu độc lập từ CSV, bao gồm tổng chi phí B4, cỡ mẫu hiệu dụng D1 và tử số, mẫu số của ba chỉ số E1.
 
 ## 6. Tự đánh giá

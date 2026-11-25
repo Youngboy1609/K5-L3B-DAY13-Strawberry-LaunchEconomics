@@ -7,8 +7,7 @@
 - Nhóm trưởng: Hồ Trọng Nghĩa
 - Repo nhóm: [K5-L3B-DAY13-Strawberry-LaunchEconomics](https://github.com/Youngboy1609/K5-L3B-DAY13-Strawberry-LaunchEconomics)
 - Nhánh dự kiến nộp: `main`
-- Bàn giao A–B từ Nghĩa: `9bb9dc0` trên `feature/nghia-lab13-a-b-metrics`. Phần D1, E1 của Quang: `4066efc` trên `DangQuang`.
-- Commit chốt: nhóm trưởng cập nhật khi chốt bài nộp trên `main`.
+- Commit chốt: cập nhật khi nhóm chốt bài nộp.
 
 ## Thành viên
 
@@ -32,9 +31,9 @@ Các phần việc dưới đây ghi theo phân công. Nhóm cập nhật đóng
 
 | Thành viên | Phần việc phụ trách | Đóng góp thực tế và bằng chứng cần ghi |
 | --- | --- | --- |
-| Hồ Trọng Nghĩa | Code A–B, chỉ số và rủi ro E, tổng hợp báo cáo | Ba phép thử A1 đạt 1,20 · 1,25 · 1,25, hoàn thiện mô hình A–B trong [src/lab13.py](src/lab13.py), đặc tả chỉ số và rủi ro trong [chi_so.md](report/team/chi_so.md), báo cáo cá nhân [2A202603729_HoTrongNghia.md](report/team/2A202603729_HoTrongNghia.md) và [group_report.md](report/team/group_report.md). |
-| Mai Xuân Khang | Gắn nhãn 2, tổng hợp hồ sơ E và ghi phiếu chấm | Bộ nhãn độc lập người 2 trong [bang_loi.md](report/team/bang_loi.md), hồ sơ launch v0 một trang [ho_so_launch_v0.md](report/team/ho_so_launch_v0.md), phiếu chấm Gate 2a [phieu_cham.md](report/team/phieu_cham.md), báo cáo cá nhân [2A202603722_MaiXuanKhang.md](report/team/2A202603722_MaiXuanKhang.md). |
-| Lương Thị Hồng Hạnh | Gắn nhãn 1, tổng hợp C và viết kế hoạch D | Bộ nhãn độc lập người 1 và bảng khắc phục 5 ca trong [bang_loi.md](report/team/bang_loi.md), kế hoạch [pilot_plan.yaml](report/team/pilot_plan.yaml) không còn placeholder và đạt chuẩn cú pháp YAML, báo cáo cá nhân [2A202603748_LuongThiHongHanh.md](report/team/2A202603748_LuongThiHongHanh.md). |
-| Phạm Đăng Quang | Kiểm số A–B, tiếp quản code cho D1 và E1 | Kiểm tra tính toán mô hình chi phí A–B, điền bảng [bang_chi_phi.md](report/team/bang_chi_phi.md); tiếp quản [src/lab13.py](src/lab13.py) triển khai cỡ mẫu D1 và ba chỉ số E1; chuyển giao số liệu D1 cho Hạnh; báo cáo cá nhân [2A202603760_PhamDangQuang.md](report/team/2A202603760_PhamDangQuang.md). |
+| Hồ Trọng Nghĩa | Code A–B, chỉ số và rủi ro E, tổng hợp báo cáo | Kết quả ba phép thử A1, commit phần A–B và mục do Nghĩa viết trong `chi_so.md`, `group_report.md`. |
+| Mai Xuân Khang | Gắn nhãn 2, tổng hợp hồ sơ E và ghi phiếu chấm | Bộ nhãn độc lập, hồ sơ launch v0 và phiếu chấm của buổi duyệt chéo. |
+| Lương Thị Hồng Hạnh | Gắn nhãn 1, tổng hợp C và viết kế hoạch D | Bộ nhãn độc lập, bảng khắc phục, `pilot_plan.yaml` và kết quả kiểm tra YAML. |
+| Phạm Đăng Quang | Kiểm số A–B, tiếp quản code cho D1 và E1 | Đối chiếu tay A1 và hoàn thiện [bảng chi phí](report/team/bang_chi_phi.md). Bổ sung tính cỡ mẫu D1 và ba chỉ số E1 trong [src/lab13.py](src/lab13.py). [Báo cáo cá nhân](report/team/2A202603760_PhamDangQuang.md) |
 
 Mỗi thành viên sao chép mẫu báo cáo cá nhân và lưu theo MSSV và họ tên viết liền không dấu, ví dụ `report/team/2A202603729_HoTrongNghia.md`. [Mẫu báo cáo cá nhân](report/team/MSSV_HoTen.md)
