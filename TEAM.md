@@ -7,7 +7,7 @@
 - Nhóm trưởng: Hồ Trọng Nghĩa
 - Repo nhóm: [K5-L3B-DAY13-Strawberry-LaunchEconomics](https://github.com/Youngboy1609/K5-L3B-DAY13-Strawberry-LaunchEconomics)
 - Nhánh dự kiến nộp: `main`
-- Commit chốt: cập nhật khi nhóm chốt bài nộp.
+- Commit chốt: `4066efc` (hoàn thiện toàn bộ bài làm A–E và hồ sơ Gate 2a).
 
 ## Thành viên
 
