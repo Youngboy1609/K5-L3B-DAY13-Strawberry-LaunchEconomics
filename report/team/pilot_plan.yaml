@@ -7,7 +7,7 @@
 #   b) Theo nhân viên, m = 75: DE = 1 + 74 × 0,02 = 2,48; n = 1.251 × 2,48 = 3.103 mỗi nhóm -> cần 42 nhân viên mỗi nhóm, tổng 84 > 40 nhân viên công ty có (không đủ người).
 #   c) 20 nhân viên mỗi nhóm: tối đa c / ICC = 20 / 0,02 = 1.000 < 1.251 (không đủ cỡ mẫu để phát hiện mức chênh 5 điểm).
 #   d) 6 depot mỗi nhóm: tối đa c / ICC = 6 / 0,02 = 300 < 1.251 (chỉ có 6 cụm, dưới 20 cụm và thiếu mẫu nghiêm trọng).
-#   e) Mức chênh 6 điểm (859 mỗi nhóm), 20 nhân viên mỗi nhóm: giải 20m / (1 + (m - 1) × 0,02) >= 859 -> m >= 299 yêu cầu mỗi người (DE = 6,96); power nếu mức chênh thật chỉ 5 điểm là 0,64.
+#   e) Mức chênh 6 điểm cần 859 yêu cầu hiệu dụng mỗi nhánh. Với 20 nhân viên/nhánh, 20m / (0,98 + 0,02m) >= 859 tương đương 2,82m >= 841,82, nên m tối thiểu là 299 yêu cầu/người. Thu thập 5.980 yêu cầu/nhánh với DE = 6,96 cho cỡ mẫu hiệu dụng 859,20/nhánh. Power nếu chênh thật 5 điểm là 0,64.
 #
 # D2 · Năm câu kiểm tra "tách được tác động" với cách chia đã chọn (mỗi câu một dòng):
 #   1. Đối chứng chạy cùng thời gian: Có, 20 nhân viên đối chứng làm song song cùng tuần, cùng depot với 20 nhân viên can thiệp.
@@ -17,7 +17,8 @@
 #   5. Ít nhất 20 cụm mỗi nhóm: Có, đúng 20 nhân viên mỗi nhóm (20 cụm/nhánh).
 #
 # Đánh đổi đã chấp nhận (nếu cách chia chưa đạt cả hai điều kiện):
-#   Chấp nhận nới MDE lên 6 điểm phần trăm (859 yêu cầu/nhóm, m >= 299 yêu cầu/nhân viên) để đạt chuẩn 20 cụm mỗi nhóm; nếu mức chênh thật chỉ là 5 điểm, power kiểm định giảm xuống ~0,64 thay vì 0,80.
+#   Chấp nhận MDE 6 điểm phần trăm để thiết kế với 20 cụm mỗi nhánh. Ước lượng power khoảng 0,64 nếu mức chênh thật là 5 điểm.
+#   Kiểm tra lưu lượng đủ điều kiện trước khi bắt đầu. Thu mẫu đồng thời ở hai nhánh từ bước 0.50, dự trù đủ thời gian cho 24 giờ đóng và 7 ngày theo dõi mở lại. Nếu chưa đủ mẫu đã theo dõi đến hạn, ghi kết quả chưa đủ bằng chứng tại ngày quyết định.
 #
 # Tỉ lệ mo_lai_trong_7_ngay hiện tại và ngưỡng an toàn đã chọn:
 #   Tỉ lệ mở lại hiện tại là 4,25% trên 1.200 yêu cầu toàn mẫu (51 ca) và 3,97% trong phạm vi pilot nội địa + hàng nặng (39 ca); ngưỡng an toàn: nhóm trợ lý không cao hơn đối chứng >= 2 điểm phần trăm hoặc trần tuyệt đối 6%.
@@ -36,7 +37,7 @@ pilot:
     mde: 0.06
     alpha: 0.05
     power: 0.80
-    n_per_arm: 859
+    n_per_arm: 859   # Cỡ mẫu hiệu dụng. Thu tối thiểu 5.980 yêu cầu/nhánh nếu 20 nhân viên, mỗi người 299 yêu cầu.
     design_effect: 6.96
     clusters_per_arm: 20
   identifiability:

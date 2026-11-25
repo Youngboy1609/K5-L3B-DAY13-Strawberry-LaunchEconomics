@@ -203,8 +203,9 @@ def in_kich_ban_xem_lai_toan_bo(runs, reqs, reqs_pilot):
         tong = chi_phi_luot_chay + phut_xem_lai * tien_moi_phut_xem_lai + tien_lam_lai
         chi_phi = tong / pilot['thanh_cong']
         hoa_von = (BASELINE * pilot['thanh_cong'] - chi_phi_luot_chay - tien_lam_lai) / tien_moi_phut_xem_lai
-        print(f'Làm lại {phut:g} phút/ca: {chi_phi:,.0f} đ/việc thành công ({chi_phi / BASELINE:.2f}× định mức), '
-              f'ngưỡng xem lại {hoa_von:.1f} phút/ca.')
+        print(f'Làm lại {phut:g} phút/ca: tổng {tong:,.0f} đ, '
+              f'{chi_phi:,.0f} đ/việc thành công ({chi_phi / BASELINE:.2f}× định mức), '
+              f'ngưỡng xem lại {hoa_von:.2f} phút/ca.')
 
 
 def co_mau_hai_ti_le(p1, p2, alpha=0.05, power=0.80):
@@ -223,17 +224,22 @@ def in_nhiem_vu_d(reqs, reqs_pilot):
     n_5_sm = math.ceil(NormalIndPower().solve_power(
         effect_size=proportion_effectsize(0.75, p1), alpha=alpha, power=power, alternative='two-sided'
     ))
+    so_nv_hien_co = 40
+    so_nv_moi_nhanh = so_nv_hien_co // 2
+    so_depot_moi_nhanh = 6
     de_75 = 1 + (75 - 1) * icc
     n_nv_75 = math.ceil(n_5 * de_75)
     so_nv_nhom = math.ceil(n_nv_75 / 75)
-    tran_20_nv = int(20 / icc)
-    tran_6_depot = int(6 / icc)
+    tran_nv = so_nv_moi_nhanh / icc
+    tran_depot = so_depot_moi_nhanh / icc
 
     n_6 = co_mau_hai_ti_le(p1, 0.76, alpha=alpha, power=power)
-    m_min_6 = math.ceil((0.98 * n_6) / (20 - icc * n_6))
+    m_min_6 = math.ceil((1 - icc) * n_6 / (so_nv_moi_nhanh - icc * n_6))
     de_6 = 1 + (m_min_6 - 1) * icc
-    power_5_tai_859 = NormalIndPower().solve_power(
-        effect_size=proportion_effectsize(0.75, p1), nobs1=n_6, alpha=alpha, alternative='two-sided'
+    n_thu_thap = so_nv_moi_nhanh * m_min_6
+    n_hieu_dung = n_thu_thap / de_6
+    power_5 = NormalIndPower().solve_power(
+        effect_size=proportion_effectsize(0.75, p1), nobs1=n_hieu_dung, alpha=alpha, alternative='two-sided'
     )
 
     mo_lai_toan_bo = reqs['mo_lai_trong_7_ngay'].mean()
@@ -242,11 +248,13 @@ def in_nhiem_vu_d(reqs, reqs_pilot):
     print('\nD1 | Cỡ mẫu pilot (baseline 0.70, alpha 0.05, power 0.80, ICC 0.02)')
     print(f'a) Theo yêu cầu (+5 điểm): {n_5:,} mỗi nhóm (statsmodels: {n_5_sm:,})')
     print(f'b) Theo nhân viên, m=75: DE={de_75:.2f} -> {n_nv_75:,}/nhóm -> '
-          f'{so_nv_nhom} người/nhóm (tổng {2 * so_nv_nhom} > 40)')
-    print(f'c) 20 nhân viên mỗi nhóm: tối đa c/ICC = {tran_20_nv:,} < {n_5:,} (không đạt +5 điểm)')
-    print(f'd) 6 depot mỗi nhóm: tối đa c/ICC = {tran_6_depot:,} (< 20 cụm và không đủ mẫu)')
-    print(f'e) Mức chênh 6 điểm ({n_6:,}/nhóm), 20 người/nhóm: m >= {m_min_6} yc/người (DE={de_6:.2f}); '
-          f'power nếu chênh thật 5 điểm: {power_5_tai_859:.2f}')
+          f'{so_nv_nhom} người/nhóm (tổng {2 * so_nv_nhom} > {so_nv_hien_co})')
+    print(f'c) {so_nv_moi_nhanh} nhân viên mỗi nhóm: trần c/ICC = {tran_nv:,.0f} < {n_5:,} (không đạt +5 điểm)')
+    print(f'd) {so_depot_moi_nhanh} depot mỗi nhóm: trần c/ICC = {tran_depot:,.0f} (< 20 cụm và không đủ mẫu)')
+    print(f'e) Mức chênh 6 điểm: cần {n_6:,} hiệu dụng/nhóm. Với {so_nv_moi_nhanh} người/nhóm, '
+          f'm >= {m_min_6} yêu cầu/người (DE={de_6:.2f}): thu thập {n_thu_thap:,}/nhóm, '
+          f'tương đương {n_hieu_dung:,.2f} hiệu dụng/nhóm.')
+    print(f'   Power nếu chênh thật 5 điểm: {power_5:.2f}.')
     print(f"Tỉ lệ mo_lai_trong_7_ngay hiện tại: toàn mẫu {mo_lai_toan_bo:.2%} "
           f"({reqs['mo_lai_trong_7_ngay'].sum()}/{len(reqs)}), "
           f"phạm vi pilot {mo_lai_pilot:.2%} ({reqs_pilot['mo_lai_trong_7_ngay'].sum()}/{len(reqs_pilot)})")

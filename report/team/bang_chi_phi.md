@@ -10,6 +10,8 @@ Số tính bằng `src/lab13.py`. Mọi con số tính từ cột `_simulated` g
 | Số lần chạy trung bình, chạy đến khi đúng | `1,25` |
 | Hệ số chi phí mỗi việc thành công, tối đa 3 lần | `1,25` |
 
+Đối chiếu tay với `p = 0,8`: tối đa 2 lượt cho `1 + 0,2 = 1,20` lượt kỳ vọng. Chạy đến khi đúng cho `1 ÷ 0,8 = 1,25`. Với 3 lượt, lấy `(1 + 0,2 + 0,2²) ÷ (1 − 0,2³) = 1,25`.
+
 ## A2 · Mô hình chi phí từ trace
 
 | Khoản | Số tiền (đ) | Nguồn | Nhãn |
@@ -45,7 +47,7 @@ Số tính bằng `src/lab13.py`. Mọi con số tính từ cột `_simulated` g
 | 45.000 yêu cầu/tháng | `33.750` | `1.185 đ` | `4.599 đ` (`simulated`) | `0,38×` |
 | Một nửa khối lượng (22.500/tháng) | `16.875` | `2.370 đ` | `5.784 đ` (`simulated`) | `0,48×` |
 
-- Chi phí cố định có đổi kết luận không? Ở khối lượng nào? Không đổi ở quy mô đầy đủ `45.000 yêu cầu/tháng` (**`4.599 đ = 0,38×`**, `simulated`), nhưng chi phí cố định tăng gấp đôi lên **`2.370 đ/việc`** khi khối lượng giảm một nửa (**`5.784 đ = 0,48×`**, `simulated`). Hồ sơ phải ghi rõ chi phí đã cộng khoản cố định `40 triệu đ/tháng` ở mức khối lượng nào.
+- Ở `45.000` và `22.500` yêu cầu/tháng trên toàn hệ thống, chi phí mỗi việc thành công trong phạm vi pilot sau khi cộng cố định lần lượt là **`4.599 đ`** và **`5.784 đ`** (`simulated`). Dưới **`6.212` yêu cầu/tháng** toàn hệ thống, chỉ số này vượt định mức `12.000 đ` nếu giữ cơ cấu yêu cầu của mẫu (`simulated`).
 
 ## B1 · Đổi từng yếu tố
 
@@ -78,5 +80,5 @@ Số tính bằng `src/lab13.py`. Mọi con số tính từ cột `_simulated` g
 
 ## B4 · Nếu phải xem lại tất cả
 
-- Chi phí mỗi việc thành công khi xem lại 100% (`noi_dia` + `hang_nang`), so với 12.000 đ: Với giả định **`9 phút/ca`** làm lại, tổng chi phí là `10.568.513 đ` → **`11.743 đ/việc` (`0,98×`, `simulated`)**; với trung bình dữ liệu **`15,3 phút/ca`** làm lại, tổng là `11.173.054 đ` → **`12.415 đ/việc` (`1,03×`, đắt hơn nhân viên tự làm, `simulated`)**.
-- Kết quả này nói gì về thứ pilot cần học được? Mức hoà vốn thời gian xem lại chỉ là **`≤ 5,12 phút`** (khi làm lại 9 phút) hoặc **`≤ 4,80 phút`** (khi làm lại 15,3 phút, `simulated`). Pilot phải đo được mức giảm tỉ lệ xem lại an toàn và rút ngắn thời gian mỗi lần xem lại xuống dưới ngưỡng này.
+- Trong phạm vi `noi_dia` + `hang_nang`, xem lại toàn bộ `948` ca có lượt `ok` với `5 phút/ca`. Với `48` ca làm lại mất `9 phút/ca`, tổng chi phí là `10.568.513 đ`, tức **`11.743 đ/việc thành công` (`0,98×`, `simulated`)**. Dùng trung bình toàn mẫu đã làm tròn `15,3 phút/ca` cho làm lại, tổng là `11.173.313 đ`, tức **`12.415 đ/việc thành công` (`1,03×`, `simulated`)**.
+- Ngưỡng hòa vốn về thời gian xem lại là **`5,12 phút/ca`** nếu làm lại mất `9 phút/ca` và **`4,80 phút/ca`** nếu làm lại mất `15,3 phút/ca` (`simulated`). Pilot cần đo thời gian xem lại và mức giảm tỉ lệ xem lại có thể đạt mà vẫn giữ ngưỡng an toàn.
