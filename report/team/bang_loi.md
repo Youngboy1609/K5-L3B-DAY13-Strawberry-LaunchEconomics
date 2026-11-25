@@ -4,7 +4,7 @@
 
 ## Hai bộ nhãn độc lập
 
-Người gắn nhãn 1: ... · Người gắn nhãn 2: Mai Xuân Khang (bộ phân tích có Codex hỗ trợ, lưu trước khi xem khóa tham khảo. [Báo cáo cá nhân](2A202603722_MaiXuanKhang.md#bộ-nhãn-ban-đầu-cp3))
+Người gắn nhãn 1: ... · Người gắn nhãn 2: Mai Xuân Khang (lưu trước khi xem khóa tham khảo. [Báo cáo cá nhân](2A202603722_MaiXuanKhang.md#bộ-nhãn-ban-đầu-cp3))
 
 | Ca | Nhãn người 1 | Nhãn người 2 | Trùng? | Nhãn thống nhất |
 | --: | --- | --- | --- | --- |
