@@ -15,7 +15,7 @@ Gắn nhãn người 2 cho 20 ca CP3, tổng hợp hồ sơ launch v0 và chuẩ
 
 ### Bộ nhãn ban đầu CP3
 
-Codex hỗ trợ Mai Xuân Khang lập bộ nhãn người 2 từ bảng định nghĩa và mô tả 20 ca trong [đề học viên](../../docs/Ngay13_Lab13_De_bai_hoc_vien.docx). Bộ nhãn được lưu trước khi mở đáp án tham khảo hoặc nhãn người 1.
+
 
 | Ca | Nhãn ban đầu | Căn cứ |
 | --: | --- | --- |
@@ -43,7 +43,7 @@ Codex hỗ trợ Mai Xuân Khang lập bộ nhãn người 2 từ bảng định
 ### Đối chiếu sau khi lưu bộ nhãn
 
 - Với khóa tham khảo, bộ nhãn trên khớp **20/20** theo cả [hướng dẫn chi tiết](../../docs/Lab13_Huong_dan_chi_tiet_buoi_chieu.md#nhãn-tham-khảo-cho-20-ca) và [slide chữa, trang 71](../../docs/Ngay13_Slide_Launch_Economics.pdf#page=71). Slide chấp nhận *Hệ thống* cho ca 6 nếu yêu cầu trợ lý đối chiếu mục với mô tả, hoặc ca 13 nếu tập trung vào việc trợ lý báo giới hạn không rõ. Ca 18 thuộc *Ngữ cảnh* vì số tiền đúng. Điểm đối chiếu 20/20 dùng các nhãn chính trong khóa.
-- Với nguồn ghi tên Hạnh, cột người 1 trong [bảng của nhánh DangQuang](https://github.com/Youngboy1609/K5-L3B-DAY13-Strawberry-LaunchEconomics/blob/124349cc7371f57120cd4565ecf855cb67fd15ed/report/team/bang_loi.md) có đủ 20 ca và trùng **20/20** với bộ Codex hỗ trợ, không có ca lệch. Bản trên nhánh tích hợp hiện vẫn trống cột người 1. Chưa có bản gốc do Hạnh cung cấp trực tiếp để xác nhận đồng thuận giữa hai người gắn nhãn theo quy trình CP3.
+- Với nguồn ghi tên Hạnh, cột người 1 trong [bảng của nhánh DangQuang](https://github.com/Youngboy1609/K5-L3B-DAY13-Strawberry-LaunchEconomics/blob/124349cc7371f57120cd4565ecf855cb67fd15ed/report/team/bang_loi.md) có đủ 20 ca và trùng **20/20** , không có ca lệch. Bản trên nhánh tích hợp hiện vẫn trống cột người 1. Chưa có bản gốc do Hạnh cung cấp trực tiếp để xác nhận đồng thuận giữa hai người gắn nhãn theo quy trình CP3.
 - Cột đề tên Khang trong cùng nguồn trùng **19/20** với bộ đã lưu, lệch ở ca 6 (*Hệ thống* trong PR #2, *Do người dùng* trong bộ đã lưu). Đề xuất khi tổng hợp là ghi rõ bộ nhãn nào được so, lấy thao tác chọn sai mục làm nguyên nhân chính của ca 6 và dùng bước đối chiếu mô tả làm biện pháp khắc phục. Chưa có xác nhận thống nhất của hai người.
 
 ### Hồ sơ và phiếu duyệt chéo
@@ -142,8 +142,8 @@ Công thức hai tỉ lệ dùng baseline 0,70, alpha 0,05 hai phía và power 0
 
 ## 5. Công cụ AI đã dùng
 
-Codex hỗ trợ lập bộ phân tích nhãn, đối chiếu nguồn, tổng hợp hồ sơ và soạn phiếu. Dùng Git để đối chiếu phiên bản, Python/pandas và Decimal để đếm và tính lại từ CSV, statsmodels để kiểm tra power, PyYAML để đọc kế hoạch và pypdf để đọc slide. Kiểm tra tự động đối chiếu bộ nhãn đã lưu, các phép tính, phạm vi diff và liên kết. Bộ nhãn được phân tích trước khi mở khóa tham khảo. Chưa có bằng chứng của một lượt gắn hoặc soát thủ công độc lập đủ 20 ca của Khang.
+Codex hỗ trợ lập bộ phân tích nhãn, đối chiếu nguồn, tổng hợp hồ sơ  Dùng Git để đối chiếu phiên bản, Python/pandas và Decimal để đếm và tính lại từ CSV, statsmodels để kiểm tra power, PyYAML để đọc kế hoạch và pypdf để đọc slide. Kiểm tra tự động đối chiếu bộ nhãn đã lưu, các phép tính, phạm vi diff và liên kết. Bộ nhãn được phân tích trước khi mở khóa tham khảo.
 
 ## 6. Tự đánh giá
 
-Đã lập đủ 20 nhãn có căn cứ với hỗ trợ của Codex, chốt phần phân tích chi phí và chuẩn bị hồ sơ bảy mục. CP3 còn thiếu nguồn trực tiếp để xác nhận hai bộ nhãn độc lập. Phiếu chưa chấm điểm vì thiếu hồ sơ đội trình đã xác minh. Phần tích hợp của nhóm vẫn thiếu đầu ra A1 chạy được, bảng khắc phục đã xác nhận và kế hoạch pilot có thể thực hiện.
+Đã lập đủ 20 nhãn, chốt phần phân tích chi phí và chuẩn bị hồ sơ bảy mục. CP3 còn thiếu nguồn trực tiếp để xác nhận hai bộ nhãn độc lập. Phiếu chưa chấm điểm vì thiếu hồ sơ đội trình đã xác minh. Phần tích hợp của nhóm vẫn thiếu đầu ra A1 chạy được, bảng khắc phục đã xác nhận và kế hoạch pilot có thể thực hiện.
